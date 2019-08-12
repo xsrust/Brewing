@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: fermentables
+#
+#  id          :bigint           not null, primary key
+#  name        :string
+#  type        :integer
+#  producer    :string
+#  grain_group :integer
+#  potential   :float
+#  color       :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'test_helper'
 
 class FermentableTest < ActiveSupport::TestCase

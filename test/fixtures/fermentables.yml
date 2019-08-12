@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: fermentables
+#
+#  id          :bigint           not null, primary key
+#  name        :string
+#  type        :integer
+#  producer    :string
+#  grain_group :integer
+#  potential   :float
+#  color       :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
