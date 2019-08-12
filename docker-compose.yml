@@ -23,6 +23,7 @@ services:
       - '3000:3000'
     volumes:
       - '.:/app'
+      - 'bundle:/bundle'
     env_file:
       - '.env'
 
@@ -52,3 +53,4 @@ services:
 volumes:
   redis:
   postgres:
+  bundle:
