@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @hop_addition.recipe %>
+</p>
+
+<p>
+  <strong>Hop:</strong>
+  <%= @hop_addition.hop %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @hop_addition.amount %>
+</p>
+
+<p>
+  <strong>Time unit:</strong>
+  <%= @hop_addition.time_unit %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @hop_addition.time %>
+</p>
+
+<p>
+  <strong>Duration unit:</strong>
+  <%= @hop_addition.duration_unit %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @hop_addition.duration %>
+</p>
+
+<%= link_to 'Edit', edit_hop_addition_path(@hop_addition) %> |
+<%= link_to 'Back', hop_additions_path %>

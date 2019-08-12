@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @recipe.type %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @recipe.author %>
+</p>
+
+<p>
+  <strong>Coauthor:</strong>
+  <%= @recipe.coauthor %>
+</p>
+
+<p>
+  <strong>Batch size:</strong>
+  <%= @recipe.batch_size %>
+</p>
+
+<p>
+  <strong>Efficency:</strong>
+  <%= @recipe.efficency %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @recipe.style %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @recipe.notes %>
+</p>
+
+<p>
+  <strong>Original gravity:</strong>
+  <%= @recipe.original_gravity %>
+</p>
+
+<p>
+  <strong>Final gravity:</strong>
+  <%= @recipe.final_gravity %>
+</p>
+
+<p>
+  <strong>Alcohol by volume:</strong>
+  <%= @recipe.alcohol_by_volume %>
+</p>
+
+<p>
+  <strong>Ibu estimate:</strong>
+  <%= @recipe.ibu_estimate %>
+</p>
+
+<p>
+  <strong>Color estimate:</strong>
+  <%= @recipe.color_estimate %>
+</p>
+
+<p>
+  <strong>Carbonation:</strong>
+  <%= @recipe.carbonation %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hop Additions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Recipe</th>
+      <th>Hop</th>
+      <th>Amount</th>
+      <th>Time unit</th>
+      <th>Time</th>
+      <th>Duration unit</th>
+      <th>Duration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hop_additions.each do |hop_addition| %>
+      <tr>
+        <td><%= hop_addition.recipe %></td>
+        <td><%= hop_addition.hop %></td>
+        <td><%= hop_addition.amount %></td>
+        <td><%= hop_addition.time_unit %></td>
+        <td><%= hop_addition.time %></td>
+        <td><%= hop_addition.duration_unit %></td>
+        <td><%= hop_addition.duration %></td>
+        <td><%= link_to 'Show', hop_addition %></td>
+        <td><%= link_to 'Edit', edit_hop_addition_path(hop_addition) %></td>
+        <td><%= link_to 'Destroy', hop_addition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hop Addition', new_hop_addition_path %>

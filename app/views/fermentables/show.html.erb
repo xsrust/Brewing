@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fermentable.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @fermentable.type %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @fermentable.producer %>
+</p>
+
+<p>
+  <strong>Grain group:</strong>
+  <%= @fermentable.grain_group %>
+</p>
+
+<p>
+  <strong>Potential:</strong>
+  <%= @fermentable.potential %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @fermentable.color %>
+</p>
+
+<%= link_to 'Edit', edit_fermentable_path(@fermentable) %> |
+<%= link_to 'Back', fermentables_path %>

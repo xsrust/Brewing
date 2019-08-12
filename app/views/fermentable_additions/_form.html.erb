@@ -1,0 +1,67 @@
+<%= form_with(model: fermentable_addition, local: true) do |form| %>
+  <% if fermentable_addition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fermentable_addition.errors.count, "error") %> prohibited this fermentable_addition from being saved:</h2>
+
+      <ul>
+      <% fermentable_addition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :recipe_id %>
+    <%= form.text_field :recipe_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fermentable_id %>
+    <%= form.text_field :fermentable_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_unit %>
+    <%= form.number_field :time_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.text_field :time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration_unit %>
+    <%= form.number_field :duration_unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duration %>
+    <%= form.text_field :duration %>
+  </div>
+
+  <div class="field">
+    <%= form.label :specific_gravity %>
+    <%= form.number_field :specific_gravity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :step %>
+    <%= form.number_field :step %>
+  </div>
+
+  <div class="field">
+    <%= form.label :use %>
+    <%= form.number_field :use %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

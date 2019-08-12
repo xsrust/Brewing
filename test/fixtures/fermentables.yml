@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 1
+  producer: MyString
+  grain_group: 1
+  potential: 1.5
+  color: 1.5
+
+two:
+  name: MyString
+  type: 1
+  producer: MyString
+  grain_group: 1
+  potential: 1.5
+  color: 1.5

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 1
+  author: MyString
+  coauthor: MyString
+  batch_size: 1.5
+  efficency: 1.5
+  style: MyString
+  notes: MyString
+  original_gravity: 1.5
+  final_gravity: 1.5
+  alcohol_by_volume: 1.5
+  ibu_estimate: 1
+  color_estimate: 1
+  carbonation: 1.5
+
+two:
+  name: MyString
+  type: 1
+  author: MyString
+  coauthor: MyString
+  batch_size: 1.5
+  efficency: 1.5
+  style: MyString
+  notes: MyString
+  original_gravity: 1.5
+  final_gravity: 1.5
+  alcohol_by_volume: 1.5
+  ibu_estimate: 1
+  color_estimate: 1
+  carbonation: 1.5

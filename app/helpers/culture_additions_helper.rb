@@ -1,0 +1,2 @@
+module CultureAdditionsHelper
+end

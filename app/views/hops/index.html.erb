@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hops</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Producer</th>
+      <th>Origin</th>
+      <th>Year</th>
+      <th>Form</th>
+      <th>Alpha acid</th>
+      <th>Beta acid</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hops.each do |hop| %>
+      <tr>
+        <td><%= hop.name %></td>
+        <td><%= hop.producer %></td>
+        <td><%= hop.origin %></td>
+        <td><%= hop.year %></td>
+        <td><%= hop.form %></td>
+        <td><%= hop.alpha_acid %></td>
+        <td><%= hop.beta_acid %></td>
+        <td><%= hop.type %></td>
+        <td><%= link_to 'Show', hop %></td>
+        <td><%= link_to 'Edit', edit_hop_path(hop) %></td>
+        <td><%= link_to 'Destroy', hop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hop', new_hop_path %>
