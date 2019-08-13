@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :type %>
-    <%= form.number_field :type %>
+    <%= form.select :type, Fermentable.types.keys.map {|t| [t.titleize,t]}  %>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :grain_group %>
-    <%= form.number_field :grain_group %>
+    <%= form.select :grain_group, Fermentable.grain_groups.keys.map {|gg| [gg.titleize,gg]} %>
   </div>
 
   <div class="field">
