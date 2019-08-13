@@ -36,7 +36,9 @@
       <h1><%= yield :heading %></h1>
     </div>
     <%= render 'layouts/flash' %>
-    <%= yield %>
+    <div id="content">
+      <%= yield %>
+    </div>
   </main>
 
   <footer>

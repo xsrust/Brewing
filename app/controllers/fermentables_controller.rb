@@ -30,6 +30,7 @@ class FermentablesController < ApplicationController
       if @fermentable.save
         format.html { redirect_to @fermentable, notice: 'Fermentable was successfully created.' }
         format.json { render :show, status: :created, location: @fermentable }
+        format.js { render :show }
       else
         format.html { render :new }
         format.json { render json: @fermentable.errors, status: :unprocessable_entity }
@@ -44,6 +45,7 @@ class FermentablesController < ApplicationController
       if @fermentable.update(fermentable_params)
         format.html { redirect_to @fermentable, notice: 'Fermentable was successfully updated.' }
         format.json { render :show, status: :ok, location: @fermentable }
+        format.js { render :show }
       else
         format.html { render :edit }
         format.json { render json: @fermentable.errors, status: :unprocessable_entity }
@@ -58,6 +60,7 @@ class FermentablesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to fermentables_url, notice: 'Fermentable was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {render :index }
     end
   end
 

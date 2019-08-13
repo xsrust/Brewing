@@ -1,5 +1,9 @@
 <h1>New Fermentable</h1>
 
-<%= render 'form', fermentable: @fermentable %>
+<div id="fermentable">
 
-<%= link_to 'Back', fermentables_path %>
+  <%= render 'form', fermentable: @fermentable %>
+
+  <%= link_to 'Back', fermentables_path , remote: true%>
+
+</div>

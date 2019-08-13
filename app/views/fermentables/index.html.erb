@@ -2,7 +2,7 @@
 
 <h1>Fermentables</h1>
 
-<table>
+<table id="fermentables">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,8 +24,8 @@
         <td><%= fermentable.grain_group %></td>
         <td><%= fermentable.potential %></td>
         <td><%= fermentable.color %></td>
-        <td><%= link_to 'Show', fermentable %></td>
-        <td><%= link_to 'Edit', edit_fermentable_path(fermentable) %></td>
+        <td><%= link_to 'Show', fermentable , remote: true %></td>
+        <td><%= link_to 'Edit', edit_fermentable_path(fermentable), remote: true%></td>
         <td><%= link_to 'Destroy', fermentable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Fermentable', new_fermentable_path %>
+<%= link_to 'New Fermentable', new_fermentable_path , remote: true %>

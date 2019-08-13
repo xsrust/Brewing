@@ -1,4 +1,4 @@
-<%= form_with(model: fermentable, local: true) do |form| %>
+<%= form_with(model: fermentable) do |form| %>
   <% if fermentable.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(fermentable.errors.count, "error") %> prohibited this fermentable from being saved:</h2>
