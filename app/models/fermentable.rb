@@ -18,6 +18,7 @@ class Fermentable < ApplicationRecord
     :other]
   enum grain_group: [ :base, :caramel, :flaked, :roasted, :specialty, :smoked,
     :adjunct ]
+    
   has_many :fermentable_additions
   has_many :recipes, through: :fermentable_additions
 

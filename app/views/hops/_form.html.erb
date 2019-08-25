@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :form %>
-    <%= form.number_field :form %>
+    <%= form.select :form, Hop.forms.keys.map {|f| [f.titleize,f]} %>
   </div>
 
   <div class="field">
@@ -48,7 +48,7 @@
 
   <div class="field">
     <%= form.label :type %>
-    <%= form.number_field :type %>
+    <%= form.select :type, Hop.types.keys.map {|t| [t.titleize,t]} %>
   </div>
 
   <div class="actions">

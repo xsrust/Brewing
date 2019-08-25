@@ -16,6 +16,13 @@
 #
 
 class Culture < ApplicationRecord
+  enum type: [:ale, :bacteria, :brett, :champagne, :kviek, :lacto, :lager,
+    :malolactic, :mixed_culture, :other, :pedio, :spontaneous, :wine]
+  enum form: [:liquid, :dry, :slant, :culture, :dregs]
+  
   has_many :culture_additions
   has_many :recipes, through: :culture_additions
+
+  #disable inheritance column
+  self.inheritance_column = :_type_disabled
 end

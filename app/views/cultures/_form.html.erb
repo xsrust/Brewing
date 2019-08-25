@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :type %>
-    <%= form.number_field :type %>
+    <%= form.select :type, Culture.types.keys.map {|t| [t.titleize,t]} %>
   </div>
 
   <div class="field">
     <%= form.label :form %>
-    <%= form.number_field :form %>
+    <%= form.select :form, Culture.forms.keys.map {|f| [f.titleize,f]} %>
   </div>
 
   <div class="field">

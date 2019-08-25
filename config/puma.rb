@@ -58,3 +58,5 @@ restart_command 'puma'
 # we'll set the connection pool value in the DATABASE_URL later.
 #    defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
 #  end
+# Allow puma to be restarted by `rails restart` command.
+plugin :tmp_restart

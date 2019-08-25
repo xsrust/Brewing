@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :type %>
-    <%= form.number_field :type %>
+    <%= form.select :type, Recipe.types.keys.map {|t| [t.titleize,t]} %>
   </div>
 
   <div class="field">
@@ -79,6 +79,16 @@
   <div class="field">
     <%= form.label :carbonation %>
     <%= form.text_field :carbonation %>
+  </div>
+
+  <div class="field-group">
+    <%= form.fields_for :fermentable_additions do |fermentable_addition| %>
+      <div class="fermentable_addition">
+        Fermentable: <%= fermentable_addition_form.text_field :name %>
+        <%= fermentable_addition_form.check_box :_destroy %>
+        <%= fermentable_addition_form.label :_destroy %>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
