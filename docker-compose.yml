@@ -23,7 +23,7 @@ services:
       - '3000:3000'
     volumes:
       - '.:/app'
-      - 'bundle:/bundle'
+      - 'bindle:/bundle'
     env_file:
       - '.env'
 
@@ -35,7 +35,7 @@ services:
     command: bundle exec sidekiq -C config/sidekiq.yml.erb
     volumes:
       - '.:/app'
-      - 'bundle:/bundle'
+      - 'bindle:/bundle'
     env_file:
       - '.env'
 
@@ -48,11 +48,11 @@ services:
       - '28080:28080'
     volumes:
       - '.:/app'
-      - 'bundle:/bundle'
+      - 'bindle:/bundle'
     env_file:
       - '.env'
 
 volumes:
   redis:
   postgres:
-  bundle:
+  bindle:
