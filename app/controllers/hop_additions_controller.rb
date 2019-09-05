@@ -1,10 +1,14 @@
 class HopAdditionsController < ApplicationController
   before_action :set_hop_addition, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe
+  before_action :set_hop_additions, only: [:index, :create, :update, :destroy]
 
   # GET /hop_additions
   # GET /hop_additions.json
   def index
-    @hop_additions = HopAddition.all
+    respond_to do |format|
+      format.js { render :index }
+    end
   end
 
   # GET /hop_additions/1
@@ -15,10 +19,18 @@ class HopAdditionsController < ApplicationController
   # GET /hop_additions/new
   def new
     @hop_addition = HopAddition.new
+    @hop_addition.recipe = @recipe
+
+    respond_to do |format|
+      format.js { render :new }
+    end
   end
 
   # GET /hop_additions/1/edit
   def edit
+    respond_to do |format|
+      format.js { render :edit }
+    end
   end
 
   # POST /hop_additions
@@ -28,11 +40,9 @@ class HopAdditionsController < ApplicationController
 
     respond_to do |format|
       if @hop_addition.save
-        format.html { redirect_to @hop_addition, notice: 'Hop addition was successfully created.' }
-        format.json { render :show, status: :created, location: @hop_addition }
+        format.js { render :index }
       else
-        format.html { render :new }
-        format.json { render json: @hop_addition.errors, status: :unprocessable_entity }
+        format.js { render :new}
       end
     end
   end
@@ -42,11 +52,9 @@ class HopAdditionsController < ApplicationController
   def update
     respond_to do |format|
       if @hop_addition.update(hop_addition_params)
-        format.html { redirect_to @hop_addition, notice: 'Hop addition was successfully updated.' }
-        format.json { render :show, status: :ok, location: @hop_addition }
+        format.js { render :index }
       else
-        format.html { render :edit }
-        format.json { render json: @hop_addition.errors, status: :unprocessable_entity }
+        format.js { render :edit}
       end
     end
   end
@@ -56,8 +64,7 @@ class HopAdditionsController < ApplicationController
   def destroy
     @hop_addition.destroy
     respond_to do |format|
-      format.html { redirect_to hop_additions_url, notice: 'Hop addition was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render :index }
     end
   end
 
@@ -67,8 +74,16 @@ class HopAdditionsController < ApplicationController
       @hop_addition = HopAddition.find(params[:id])
     end
 
+    def set_recipe
+      @recipe = Recipe.find(params[:recipe_id])
+    end
+
+    def set_hop_additions
+      @hop_additions = @recipe.hop_additions.order(:use, amount: :asc)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def hop_addition_params
-      params.require(:hop_addition).permit(:recipe_id, :hop_id, :amount, :time_unit, :time, :duration_unit, :duration)
+      params.require(:hop_addition).permit(:recipe_id, :hop_id, :amount, :time_unit, :time, :duration_unit, :duration, :use)
     end
 end

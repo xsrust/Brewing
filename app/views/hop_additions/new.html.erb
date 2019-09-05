@@ -1,5 +1,2 @@
-<h1>New Hop Addition</h1>
-
-<%= render 'form', hop_addition: @hop_addition %>
-
-<%= link_to 'Back', hop_additions_path %>
+<% submit_method = @hop_addition.new_record? ? :post : :patch %>
+<%= render 'form', hop_addition: @hop_addition, submit_method: submit_method %>

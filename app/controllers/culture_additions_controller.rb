@@ -1,10 +1,14 @@
 class CultureAdditionsController < ApplicationController
   before_action :set_culture_addition, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe
+  before_action :set_culture_additions, only: [:index, :create, :update, :destroy]
 
   # GET /culture_additions
   # GET /culture_additions.json
   def index
-    @culture_additions = CultureAddition.all
+    respond_to do |format|
+      format.js { render :index }
+    end
   end
 
   # GET /culture_additions/1
@@ -15,10 +19,18 @@ class CultureAdditionsController < ApplicationController
   # GET /culture_additions/new
   def new
     @culture_addition = CultureAddition.new
+    @culture_addition.recipe = @recipe
+
+    respond_to do |format|
+      format.js { render :new }
+    end
   end
 
   # GET /culture_additions/1/edit
   def edit
+    respond_to do |format|
+      format.js { render :edit }
+    end
   end
 
   # POST /culture_additions
@@ -28,11 +40,9 @@ class CultureAdditionsController < ApplicationController
 
     respond_to do |format|
       if @culture_addition.save
-        format.html { redirect_to @culture_addition, notice: 'Culture addition was successfully created.' }
-        format.json { render :show, status: :created, location: @culture_addition }
+        format.js { render :index }
       else
-        format.html { render :new }
-        format.json { render json: @culture_addition.errors, status: :unprocessable_entity }
+        format.js { render :new}
       end
     end
   end
@@ -42,11 +52,9 @@ class CultureAdditionsController < ApplicationController
   def update
     respond_to do |format|
       if @culture_addition.update(culture_addition_params)
-        format.html { redirect_to @culture_addition, notice: 'Culture addition was successfully updated.' }
-        format.json { render :show, status: :ok, location: @culture_addition }
+        format.js { render :index }
       else
-        format.html { render :edit }
-        format.json { render json: @culture_addition.errors, status: :unprocessable_entity }
+        format.js { render :edit}
       end
     end
   end
@@ -56,8 +64,7 @@ class CultureAdditionsController < ApplicationController
   def destroy
     @culture_addition.destroy
     respond_to do |format|
-      format.html { redirect_to culture_additions_url, notice: 'Culture addition was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js { render :index }
     end
   end
 
@@ -65,6 +72,14 @@ class CultureAdditionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_culture_addition
       @culture_addition = CultureAddition.find(params[:id])
+    end
+
+    def set_recipe
+      @recipe = Recipe.find(params[:recipe_id])
+    end
+
+    def set_culture_additions
+      @culture_additions = @recipe.culture_additions.order(amount: :asc)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

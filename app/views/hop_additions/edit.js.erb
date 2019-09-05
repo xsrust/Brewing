@@ -1,0 +1,3 @@
+$(".hop-addition-<%= @hop_addition.id %>")
+  .html("<%= j render template: 'hop_additions/new.html.erb' %>")
+  .children("input").attr("form","hop_addition_form");

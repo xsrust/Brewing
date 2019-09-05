@@ -6,8 +6,6 @@ class FermentableAdditionsController < ApplicationController
   # GET /fermentable_additions
   # GET /fermentable_additions.json
   def index
-    @fermentable_additions = FermentableAddition.all
-
     respond_to do |format|
       format.js { render :index }
     end
@@ -39,7 +37,9 @@ class FermentableAdditionsController < ApplicationController
   # POST /fermentable_additions.json
   def create
     @fermentable_addition = FermentableAddition.new(fermentable_addition_params)
+    @fermentable_addition.recipe = @recipe
 
+    pp @fermentable_addition.errors.messages
     respond_to do |format|
       if @fermentable_addition.save
         format.js { render :index }
@@ -52,7 +52,6 @@ class FermentableAdditionsController < ApplicationController
   # PATCH/PUT /fermentable_additions/1
   # PATCH/PUT /fermentable_additions/1.json
   def update
-    pp @fermentable_addition.errors
     respond_to do |format|
       if @fermentable_addition.update(fermentable_addition_params)
         format.js { render :index }

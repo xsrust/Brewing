@@ -26,7 +26,7 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= recipe.name %></td>
+        <td><%= link_to recipe.name, edit_recipe_path(recipe) %></td>
         <td><%= recipe.type %></td>
         <td><%= recipe.author %></td>
         <td><%= recipe.coauthor %></td>

@@ -15,6 +15,10 @@
 #
 
 class HopAddition < ApplicationRecord
+  enum time_unit: [:day, :hour, :minute], _prefix: :time
+  enum duration_unit: [:day, :hour, :minute], _prefix: :duration
+  enum use: [:mash, :boil, :whirlpool, :fermentation]
+
   belongs_to :recipe
   belongs_to :hop
 end

@@ -17,6 +17,9 @@
 #
 
 class CultureAddition < ApplicationRecord
+  enum time_unit: [:day, :hour, :minute], _prefix: :time
+  enum duration_unit: [:day, :hour, :minute], _prefix: :duration
+  
   belongs_to :recipe
   belongs_to :culture
 end

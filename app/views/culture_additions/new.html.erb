@@ -1,5 +1,2 @@
-<h1>New Culture Addition</h1>
-
-<%= render 'form', culture_addition: @culture_addition %>
-
-<%= link_to 'Back', culture_additions_path %>
+<% submit_method = @culture_addition.new_record? ? :post : :patch %>
+<%= render 'form', culture_addition: @culture_addition, submit_method: submit_method %>
