@@ -18,6 +18,10 @@
 #
 
 class FermentableAddition < ApplicationRecord
+  enum time_unit: [:day, :hour, :minute], _prefix: :time
+  enum duration_unit: [:day, :hour, :minute], _prefix: :duration
+  enum use: [:mash, :boil, :fermentation, :packaging]
+
   belongs_to :recipe
   belongs_to :fermentable
 end

@@ -59,6 +59,9 @@ gem 'turbolinks', '~> 5'
 # bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications. (https://github.com/twbs/bootstrap-sass)
 gem 'bootstrap-sass', '~> 3.3'
 
+# This gem adds the bulma.io assets to your asset pipeline so you can import them in your Rails project. (https://github.com/joshuajansen/bulma-rails)
+gem 'bulma-rails', '~> 0.7.5'
+
 # Use Font Awesome Rails for Font Awesome icons
 # an asset gemification of the font-awesome icon font library (https://github.com/bokmann/font-awesome-rails)
 gem 'font-awesome-rails', '~> 4.7'

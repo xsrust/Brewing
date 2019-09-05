@@ -1,5 +1,2 @@
-<h1>New Fermentable Addition</h1>
-
-<%= render 'form', fermentable_addition: @fermentable_addition %>
-
-<%= link_to 'Back', fermentable_additions_path %>
+<% submit_method = @fermentable_addition.new_record? ? :post : :patch %>
+<%= render 'form', fermentable_addition: @fermentable_addition, submit_method: submit_method %>

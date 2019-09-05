@@ -1,0 +1,3 @@
+$(".fermentable-addition-<%= @fermentable_addition.id %>")
+  .html("<%= j render template: 'fermentable_additions/new.html.erb' %>")
+  .children("input").attr("form","fermentable_addition_form");

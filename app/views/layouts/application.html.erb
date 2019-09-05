@@ -26,21 +26,24 @@
 </head>
 
 <body>
+
   <%= render 'layouts/google_analytics' %>
   <header>
     <%= render 'layouts/navigation' %>
   </header>
 
-  <main role="main" class="container">
-    <div class="page-header">
-      <h1><%= yield :heading %></h1>
-    </div>
-    <%= render 'layouts/flash' %>
-    <div id="content">
-      <%= yield %>
-    </div>
-  </main>
-
+  <section class="section columns">
+    <%# render 'layouts/menu' %>
+    <main role="main" class="container is-fullwidth">
+      <div class="container">
+        <h1 class="title"><%= yield :heading %></h1>
+      </div>
+      <%= render 'layouts/flash' %>
+      <div id="content">
+        <%= yield %>
+      </div>
+    </main>
+  </section>
   <footer>
     <hr/>
     <div class="container">

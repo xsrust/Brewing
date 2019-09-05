@@ -1,6 +1,17 @@
-<h1>Editing Recipe</h1>
+<h1 class="title">Editing Recipe</h1>
 
-<%= render 'form', recipe: @recipe %>
+<div class="tabs is-toggle">
+  <ul>
+    <li class="recipe-tab is-active"><a href="#recipe">Recipe</a></li>
+    <li class="fermentables-tab"><%= link_to 'Fermentables', recipe_fermentable_additions_path(recipe_id: @recipe.id), remote: true%></li>
+    <li class="hops-tab"><a href="#hops">Hops</a></li>
+    <li class="cultures-tab"><a href="#cultures">Cultures</a></li>
+  </ul>
+</div>
 
-<%= link_to 'Show', @recipe %> |
-<%= link_to 'Back', recipes_path %>
+<div class="box form-container">
+  <%= render 'form', recipe: @recipe %>
+</div>
+
+<%= link_to 'Show', @recipe, class: 'button is-text' %> |
+<%= link_to 'Back', recipes_path, class: 'button is-text' %>

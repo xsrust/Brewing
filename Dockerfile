@@ -18,4 +18,4 @@ COPY . .
 
 LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
 
-CMD puma -C config/puma.rb
+CMD bundle install ; puma -C config/puma.rb
