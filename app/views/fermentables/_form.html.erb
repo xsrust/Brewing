@@ -1,0 +1,42 @@
+<%= form_with(model: fermentable, local: true) do |form| %>
+  <% if fermentable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fermentable.errors.count, "error") %> prohibited this fermentable from being saved:</h2>
+
+      <ul>
+      <% fermentable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.number_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grain_group %>
+    <%= form.number_field :grain_group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :potential %>
+    <%= form.text_field :potential %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

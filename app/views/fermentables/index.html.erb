@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fermentables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Grain group</th>
+      <th>Potential</th>
+      <th>Color</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fermentables.each do |fermentable| %>
+      <tr>
+        <td><%= fermentable.name %></td>
+        <td><%= fermentable.type %></td>
+        <td><%= fermentable.grain_group %></td>
+        <td><%= fermentable.potential %></td>
+        <td><%= fermentable.color %></td>
+        <td><%= link_to 'Show', fermentable %></td>
+        <td><%= link_to 'Edit', edit_fermentable_path(fermentable) %></td>
+        <td><%= link_to 'Destroy', fermentable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fermentable', new_fermentable_path %>
