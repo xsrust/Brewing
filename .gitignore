@@ -20,3 +20,16 @@
 /vendor/bundle
 /public/assets/*
 .env
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+/node_modules
+/yarn-error.log
+
+/public/assets
+.bugbye_history
+
+# Ignore the master key for decrypting credentials and more.
+/config/master.key

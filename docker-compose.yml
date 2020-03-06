@@ -1,58 +1,23 @@
-version: '2'
+version: '3'
+volumes:
+  db_volume:
 
 services:
-  postgres:
-    image: 'postgres:10.3-alpine'
+  db:
+    image: postgres
     volumes:
-      - 'postgres:/var/lib/postgresql/data'
+      - db_volume:/var/lib/postgresql/data
     env_file:
-      - '.env'
+      - ./.env
 
-  redis:
-    image: 'redis:4.0-alpine'
-    command: redis-server --requirepass yourpassword
-    volumes:
-      - 'redis:/data'
-
-  website:
-    depends_on:
-      - 'postgres'
-      - 'redis'
+  web:
     build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
     ports:
-      - '3000:3000'
-    volumes:
-      - '.:/app'
-      - 'bindle:/bundle'
-    env_file:
-      - '.env'
-
-  sidekiq:
+      - "3000:3000"
     depends_on:
-      - 'postgres'
-      - 'redis'
-    build: .
-    command: bundle exec sidekiq -C config/sidekiq.yml.erb
-    volumes:
-      - '.:/app'
-      - 'bindle:/bundle'
+      - db
     env_file:
-      - '.env'
-
-  cable:
-    depends_on:
-      - 'redis'
-    build: .
-    command: bundle exec puma -p 28080 cable/config.ru
-    ports:
-      - '28080:28080'
-    volumes:
-      - '.:/app'
-      - 'bindle:/bundle'
-    env_file:
-      - '.env'
-
-volumes:
-  redis:
-  postgres:
-  bindle:
+      - ./.env
