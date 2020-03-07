@@ -18,6 +18,10 @@ class Fermentable < ApplicationRecord
   enum grain_group: [ :base, :caramel, :flaked, :roasted, :specialty, :smoked,
     :adjunct ]
 
+  # Relations
+  has_many :fermentable_additions
+  has_many :recipes, through: :fermentable_additions
+
 
   # disable inheritance column
   self.inheritance_column = :_type_disabled

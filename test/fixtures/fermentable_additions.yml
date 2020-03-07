@@ -1,0 +1,52 @@
+# == Schema Information
+#
+# Table name: fermentable_additions
+#
+#  id               :bigint           not null, primary key
+#  amount           :float
+#  duration         :float
+#  duration_unit    :integer
+#  specific_gravity :float
+#  step             :integer
+#  time             :float
+#  time_unit        :integer
+#  use              :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  fermentable_id   :bigint
+#  recipe_id        :bigint
+#
+# Indexes
+#
+#  index_fermentable_additions_on_fermentable_id  (fermentable_id)
+#  index_fermentable_additions_on_recipe_id       (recipe_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (fermentable_id => fermentables.id)
+#  fk_rails_...  (recipe_id => recipes.id)
+#
+
+one:
+  recipe: one
+  fermentable: one
+  amount: 1.5
+  time_unit: 1
+  time: 1.5
+  duration_unit: 1
+  duration: 1.5
+  step: 1
+  use: 1
+  specific_gravity: 1.5
+
+two:
+  recipe: two
+  fermentable: two
+  amount: 1.5
+  time_unit: 1
+  time: 1.5
+  duration_unit: 1
+  duration: 1.5
+  step: 1
+  use: 1
+  specific_gravity: 1.5

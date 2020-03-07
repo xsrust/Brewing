@@ -12,4 +12,7 @@
 #  updated_at :datetime         not null
 #
 class Recipe < ApplicationRecord
+  # Relations
+  has_many :fermentable_additions
+  has_many :fermentables, through: :fermentable_additions
 end
