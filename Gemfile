@@ -11,7 +11,7 @@ gem 'rails', '~> 5.2.0'
 
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 
 # Use Rack Timeout. Read more: https://github.com/heroku/rack-timeout
 # Abort requests that are taking too long (http://github.com/heroku/rack-timeout)
